@@ -10,5 +10,9 @@ public class Afficheur {
 	public Afficheur(TextArea area) {
 		txtCounter = area;
 	}
+	
+	public void update(CapteurImpl capteur) {
+		
+	}
 
 }
