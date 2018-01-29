@@ -1,5 +1,5 @@
 package oberver;
 
-public interface Observer {
+public interface Observer<T> {
 
 }
