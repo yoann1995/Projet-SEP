@@ -1,5 +1,5 @@
 package stategy;
 
-public class AtomicStrat {
+public class AtomicStrat implements AlgoDiffusion{
 
 }
