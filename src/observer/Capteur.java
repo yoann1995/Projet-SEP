@@ -1,5 +1,7 @@
 package observer;
 
-public interface Capteur extends Subject {
+public interface Capteur extends Subject<Capteur> {
+		
+	public Integer getValue();
 
 }

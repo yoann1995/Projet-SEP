@@ -6,13 +6,13 @@ import observer.Observer;
 public class CapteurImpl implements Capteur {
 
 	@Override
-	public void attach(Observer o) {
+	public void attach(Observer<Capteur> o) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void detach(Observer o) {
+	public void detach(Observer<Capteur> o) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -21,6 +21,12 @@ public class CapteurImpl implements Capteur {
 	public void notifierObservateurs() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Integer getValue() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
