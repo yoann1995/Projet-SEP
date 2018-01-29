@@ -1,5 +1,5 @@
 package stategy;
 
-public class SequentialStrat {
+public class SequentialStrat implements AlgoDiffusion{
 
 }

@@ -1,5 +1,5 @@
 package stategy;
 
-public class CausualStrat {
+public class CausualStrat implements AlgoDiffusion{
 
 }
