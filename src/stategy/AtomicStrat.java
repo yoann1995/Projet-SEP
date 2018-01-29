@@ -1,5 +1,11 @@
 package stategy;
 
-public class AtomicStrat implements AlgoDiffusion{
+public class AtomicStrat extends AlgoDiffusion{
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

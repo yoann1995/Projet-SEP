@@ -26,7 +26,6 @@ public class Main implements ActionListener{
 	JTextArea counter2;
 	JTextArea counter3;
 	JTextArea counter4;
-	JTextArea[] counters;
 	
 	private AlgoDiffusion algorithm;
 	
@@ -45,7 +44,7 @@ public class Main implements ActionListener{
 	    addButton();
 	    addDisplay();
 	    
-	    capteur = new CapteurImpl();
+	    capteur = new CapteurImpl(this.algorithm);
 	}
 	
 	private void startLoop() {
@@ -100,10 +99,16 @@ public class Main implements ActionListener{
 		
 		if(source==atomicButton){
 			algorithm = new AtomicStrat();
+			algorithm.configure(capteur);
+			capteur.setAlgo(algorithm);
 		}else if(source==causualButton){
 			algorithm = new CausualStrat();
+			algorithm.configure(capteur);
+			capteur.setAlgo(algorithm);
 		}else if(source==sequentialButton){
 			algorithm = new SequentialStrat();
+			algorithm.configure(capteur);
+			capteur.setAlgo(algorithm);
 		}else if(source==run){
 			loop=true;
 			startLoop();

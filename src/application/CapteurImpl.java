@@ -2,13 +2,20 @@ package application;
 
 import observer.Capteur;
 import observer.Observer;
+import stategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 	
 	private int counter;
+	private AlgoDiffusion algo;
 	
-	public CapteurImpl() {
+	public CapteurImpl(AlgoDiffusion algo) {
 		this.counter = 0;
+		this.algo = algo;
+	}
+	
+	public void setAlgo(AlgoDiffusion algo) {
+		this.algo = algo;
 	}
 	
 	public void incCounter() {
