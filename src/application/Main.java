@@ -30,6 +30,9 @@ public class Main implements ActionListener{
 	
 	private AlgoDiffusion algorithm;
 	
+	private CapteurImpl capteur;
+	private boolean loop = false;
+	
 	public static void main(String[] args) {
 		new Main();
 	}
@@ -41,6 +44,21 @@ public class Main implements ActionListener{
 	    fenetre.setLayout(layout);
 	    addButton();
 	    addDisplay();
+	    
+	    capteur = new CapteurImpl();
+	}
+	
+	private void startLoop() {
+		new Thread(){
+	          public void run() {
+	              try{
+	            	  while(loop) {
+		                  Thread.sleep(1000);
+		                  capteur.incCounter();
+	            	  }
+	              } catch(InterruptedException v){System.out.println(v);}
+	          }
+	      };
 	}
 
 	private void addDisplay() {
@@ -87,9 +105,10 @@ public class Main implements ActionListener{
 		}else if(source==sequentialButton){
 			algorithm = new SequentialStrat();
 		}else if(source==run){
-			
+			loop=true;
+			startLoop();
 		}else if(source==stop){
-			
+			loop=false;
 		}
 		
 	}

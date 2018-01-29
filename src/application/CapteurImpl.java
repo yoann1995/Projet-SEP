@@ -4,6 +4,16 @@ import observer.Capteur;
 import observer.Observer;
 
 public class CapteurImpl implements Capteur {
+	
+	private int counter;
+	
+	public CapteurImpl() {
+		this.counter = 0;
+	}
+	
+	public void incCounter() {
+		this.counter++;
+	}
 
 	@Override
 	public void attach(Observer<Capteur> o) {
