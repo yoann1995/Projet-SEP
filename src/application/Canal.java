@@ -31,7 +31,7 @@ public class Canal implements CapteurAsync, ObserverAsync<Capteur> {
 
 			@Override
 			public Void call() throws Exception {
-			  	afficheur.update(subject);
+			  	afficheur.update(this);
 		        return null;
 			}
 		}, delay, TimeUnit.MILLISECONDS);
