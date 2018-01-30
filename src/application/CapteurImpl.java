@@ -12,7 +12,7 @@ public class CapteurImpl implements Capteur {
 	
 	private int counter;
 	private AlgoDiffusion algo;
-	private List listObserver;
+	private List<ObserverAsync<Capteur>> listObserver;
 	
 	public CapteurImpl(AlgoDiffusion algo) {
 		this.counter = 0;

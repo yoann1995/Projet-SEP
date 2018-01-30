@@ -56,13 +56,19 @@ public class Main implements ActionListener,Runnable{
 	private void addDisplay() {
 		counter1 = new JTextArea("0");
 		fenetre.add(counter1);
+		capteur.attach(new Canal(capteur,counter1,100));
+		
 		counter2 = new JTextArea("0");
 		fenetre.add(counter2);
+		capteur.attach(new Canal(capteur,counter2,200));
+		
 		counter3 = new JTextArea("0");
 		fenetre.add(counter3);
+		capteur.attach(new Canal(capteur,counter3,300));
+
 		counter4 = new JTextArea("0");
 		fenetre.add(counter4);
-		
+		capteur.attach(new Canal(capteur,counter4,400));
 		
 	}
 
