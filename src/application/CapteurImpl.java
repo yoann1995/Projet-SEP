@@ -1,17 +1,23 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import observer.Capteur;
 import observer.Observer;
+import observer.ObserverAsync;
 import stategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 	
 	private int counter;
 	private AlgoDiffusion algo;
+	private List listObserver;
 	
 	public CapteurImpl(AlgoDiffusion algo) {
 		this.counter = 0;
 		this.algo = algo;
+		this.listObserver = new ArrayList<ObserverAsync<Capteur>>();
 	}
 	
 	public void setAlgo(AlgoDiffusion algo) {
@@ -23,26 +29,33 @@ public class CapteurImpl implements Capteur {
 	}
 
 	@Override
-	public void attach(Observer<Capteur> o) {
-		// TODO Auto-generated method stub
-		
+	public void attach(ObserverAsync<Capteur> o) {
+		this.listObserver.add(o);
 	}
 
 	@Override
-	public void detach(Observer<Capteur> o) {
-		// TODO Auto-generated method stub
-		
+	public void detach(ObserverAsync<Capteur> o) {
+		this.listObserver.remove(o);
 	}
 
 	@Override
 	public void notifierObservateurs() {
-		// TODO Auto-generated method stub
-		
+		this.algo.execute();
 	}
 
 	@Override
 	public Integer getValue() {
 		return counter;
 	}
+
+	public List getListObserver() {
+		return listObserver;
+	}
+
+	public void setListObserver(List listObserver) {
+		this.listObserver = listObserver;
+	}
+	
+	
 
 }

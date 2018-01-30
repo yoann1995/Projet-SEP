@@ -1,6 +1,6 @@
 package observer;
 
-public interface Capteur extends Subject<Capteur> {
+public interface Capteur extends SubjectAsync<Capteur> {
 		
 	public Integer getValue();
 

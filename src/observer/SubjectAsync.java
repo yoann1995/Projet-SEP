@@ -2,9 +2,9 @@ package observer;
 
 public interface SubjectAsync<T> {
 	
-	public void attach(Observer<T> o);
+	public void attach(ObserverAsync<T> o);
 	
-	public void detach(Observer<T> o);
+	public void detach(ObserverAsync<T> o);
 	
 	public void notifierObservateurs();
 
