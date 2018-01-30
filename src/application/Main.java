@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 
 import stategy.AlgoDiffusion;
 import stategy.AtomicStrat;
+import stategy.CapteurImpl;
 import stategy.CausualStrat;
 import stategy.SequentialStrat;
 

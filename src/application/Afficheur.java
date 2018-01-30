@@ -5,18 +5,16 @@ import java.util.concurrent.ExecutionException;
 
 import javax.swing.JTextArea;
 
-import observer.Capteur;
 import observer.CapteurAsync;
 import observer.Observer;
-import observer.ObserverDeCapteur;
 
 public class Afficheur implements Observer<CapteurAsync>{
 	
 	private JTextArea txtCounter;
 	
 	
-	public Afficheur(JTextArea counter1) {
-		txtCounter = counter1;
+	public Afficheur(JTextArea counter) {
+		txtCounter = counter;
 	}
 
 	@Override

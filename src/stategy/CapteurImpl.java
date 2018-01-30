@@ -1,13 +1,9 @@
-package application;
+package stategy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ScheduledExecutorService;
-
 import observer.Capteur;
-import observer.Observer;
 import observer.ObserverAsync;
-import stategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 	
@@ -51,7 +47,7 @@ public class CapteurImpl implements Capteur {
 		return counter;
 	}
 
-	public List getListObserver() {
+	public List<ObserverAsync<Capteur>> getListObserver() {
 		return listObserver;
 	}
 

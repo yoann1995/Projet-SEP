@@ -1,7 +1,5 @@
 package stategy;
 
-import application.CapteurImpl;
-
 public abstract class AlgoDiffusion {
 	
 	CapteurImpl capteur;
