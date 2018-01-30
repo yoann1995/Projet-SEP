@@ -3,6 +3,9 @@ package application;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +16,7 @@ import stategy.AtomicStrat;
 import stategy.CausualStrat;
 import stategy.SequentialStrat;
 
-public class Main implements ActionListener{
+public class Main implements ActionListener,Runnable{
 
 	JFrame fenetre;
 	JButton atomicButton;
@@ -37,6 +40,8 @@ public class Main implements ActionListener{
 	}
 
 	public Main(){
+	    capteur = new CapteurImpl(this.algorithm);
+
 		fenetre = new JFrame();
 	    fenetre.setVisible(true);
 	    GridLayout layout = new GridLayout(3,3);
@@ -44,20 +49,8 @@ public class Main implements ActionListener{
 	    addButton();
 	    addDisplay();
 	    
-	    capteur = new CapteurImpl(this.algorithm);
-	}
-	
-	private void startLoop() {
-		new Thread(){
-	          public void run() {
-	              try{
-	            	  while(loop) {
-		                  Thread.sleep(1000);
-		                  capteur.incCounter();
-	            	  }
-	              } catch(InterruptedException v){System.out.println(v);}
-	          }
-	      };
+	    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+	    scheduler.scheduleAtFixedRate(this, 1000, 1000, TimeUnit.MILLISECONDS);
 	}
 
 	private void addDisplay() {
@@ -117,11 +110,17 @@ public class Main implements ActionListener{
 			capteur.setAlgo(algorithm);
 		}else if(source==run){
 			loop=true;
-			startLoop();
 		}else if(source==stop){
 			loop=false;
 		}
 		
+	}
+
+	@Override
+	public void run() {
+		if(loop){
+			capteur.incCounter();
+		}
 	}
 
 }
