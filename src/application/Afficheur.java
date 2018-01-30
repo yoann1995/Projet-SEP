@@ -1,17 +1,23 @@
 package application;
 
-import java.awt.TextArea;
 
-public class Afficheur {
+import javax.swing.JTextArea;
+
+import observer.Capteur;
+import observer.ObserverDeCapteur;
+
+public class Afficheur implements ObserverDeCapteur{
 	
-	private TextArea txtCounter;
+	private JTextArea txtCounter;
 	
 	
-	public Afficheur(TextArea area) {
-		txtCounter = area;
+	public Afficheur(JTextArea counter1) {
+		txtCounter = counter1;
 	}
-	
-	public void update(CapteurImpl capteur) {
+
+	@Override
+	public void update(Capteur subject) {
+		// TODO Auto-generated method stub
 		
 	}
 

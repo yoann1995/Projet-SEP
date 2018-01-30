@@ -63,12 +63,18 @@ public class Main implements ActionListener{
 	private void addDisplay() {
 		counter1 = new JTextArea("0");
 		fenetre.add(counter1);
+		Afficheur  aff1 = new Afficheur(counter1);
 		counter2 = new JTextArea("0");
 		fenetre.add(counter2);
+		Afficheur  aff2 = new Afficheur(counter2);
 		counter3 = new JTextArea("0");
 		fenetre.add(counter3);
+		Afficheur  aff3 = new Afficheur(counter3);
 		counter4 = new JTextArea("0");
 		fenetre.add(counter4);
+		Afficheur  aff4 = new Afficheur(counter4);
+		
+		
 	}
 
 	private void addButton() {
