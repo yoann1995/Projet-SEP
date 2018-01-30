@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ScheduledExecutorService;
 
 import observer.Capteur;
 import observer.Observer;
@@ -26,6 +27,8 @@ public class CapteurImpl implements Capteur {
 	
 	public void incCounter() {
 		this.counter++;
+		System.out.println(counter);
+		notifierObservateurs();
 	}
 
 	@Override

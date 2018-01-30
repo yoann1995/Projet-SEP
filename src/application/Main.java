@@ -34,12 +34,14 @@ public class Main implements ActionListener,Runnable{
 	
 	private CapteurImpl capteur;
 	private boolean loop = false;
+	private ScheduledExecutorService scheduler;
 	
 	public static void main(String[] args) {
 		new Main();
 	}
 
 	public Main(){
+	    this.scheduler = Executors.newScheduledThreadPool(20);
 	    capteur = new CapteurImpl(this.algorithm);
 
 		fenetre = new JFrame();
@@ -49,26 +51,25 @@ public class Main implements ActionListener,Runnable{
 	    addButton();
 	    addDisplay();
 	    
-	    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 	    scheduler.scheduleAtFixedRate(this, 1000, 1000, TimeUnit.MILLISECONDS);
 	}
 
 	private void addDisplay() {
 		counter1 = new JTextArea("0");
 		fenetre.add(counter1);
-		capteur.attach(new Canal(capteur,counter1,100));
+		capteur.attach(new Canal(capteur,counter1,100,scheduler));
 		
 		counter2 = new JTextArea("0");
 		fenetre.add(counter2);
-		capteur.attach(new Canal(capteur,counter2,200));
+		capteur.attach(new Canal(capteur,counter2,200,scheduler));
 		
 		counter3 = new JTextArea("0");
 		fenetre.add(counter3);
-		capteur.attach(new Canal(capteur,counter3,300));
+		capteur.attach(new Canal(capteur,counter3,300,scheduler));
 
 		counter4 = new JTextArea("0");
 		fenetre.add(counter4);
-		capteur.attach(new Canal(capteur,counter4,400));
+		capteur.attach(new Canal(capteur,counter4,400,scheduler));
 		
 	}
 

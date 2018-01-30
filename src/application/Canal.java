@@ -17,29 +17,22 @@ public class Canal implements CapteurAsync, ObserverAsync<Capteur> {
 	private Capteur capteur;
 	private Afficheur afficheur;
 	private int delay;
+	private ScheduledExecutorService scheduler;
 
-	public Canal(Capteur capteur,JTextArea text, int delay) {
+	public Canal(Capteur capteur,JTextArea text, int delay, ScheduledExecutorService scheduler) {
 		this.capteur = capteur;
 		this.afficheur = new Afficheur(text);
 		this.delay = delay;
+		this.scheduler = scheduler;
 	}
 
 	@Override
 	public Future<Void> update(Capteur subject) {
-	    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-		return scheduler.schedule(new Callable<Void>() {
-
-			@Override
-			public Void call() throws Exception {
-			  	afficheur.update(this);
-		        return null;
-			}
-		}, delay, TimeUnit.MILLISECONDS);
+		return scheduler.schedule(new Update(afficheur, this), 10, TimeUnit.MILLISECONDS);
 	}
 
 	@Override
 	public Future<Integer> getValue() {
-		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 		return scheduler.schedule(new Callable<Integer>() {
 
 			@Override

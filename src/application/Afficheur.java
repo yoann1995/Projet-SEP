@@ -1,6 +1,8 @@
 package application;
 
 
+import java.util.concurrent.ExecutionException;
+
 import javax.swing.JTextArea;
 
 import observer.Capteur;
@@ -17,15 +19,15 @@ public class Afficheur implements Observer<CapteurAsync>{
 		txtCounter = counter1;
 	}
 
-//	@Override
-//	public void update(Capteur subject) {
-//		txtCounter.setText(subject.getValue().toString());
-//	}
-
 	@Override
 	public void update(CapteurAsync subject) {
 		// TODO Auto-generated method stub
-		txtCounter.setText(subject.getValue().toString());
+		try {
+			txtCounter.setText(subject.getValue().get().toString());
+		} catch (InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
