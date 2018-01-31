@@ -19,7 +19,7 @@ public abstract class AlgoDiffusion {
 	}
 	
 	/**
-	 * Execute.
+	 * Execute the algorithm to maj each afficheur
 	 */
 	public abstract void execute();
 	

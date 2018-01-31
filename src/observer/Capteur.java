@@ -1,6 +1,5 @@
 package observer;
 
-import java.util.concurrent.Callable;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -9,7 +8,7 @@ import java.util.concurrent.Callable;
 public interface Capteur extends SubjectAsync<Capteur> {
 		
 	/**
-	 * Gets the value.
+	 * Gets the value of the capteur (counter)
 	 *
 	 * @return the value
 	 */
