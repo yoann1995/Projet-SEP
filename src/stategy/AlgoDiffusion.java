@@ -1,5 +1,8 @@
 package stategy;
 
+import observer.Capteur;
+import observer.ObserverAsync;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class AlgoDiffusion.
@@ -22,5 +25,7 @@ public abstract class AlgoDiffusion {
 	 * Execute the algorithm to maj each afficheur
 	 */
 	public abstract void execute();
+	
+	public abstract int getValue(ObserverAsync<Capteur> canal);
 	
 }

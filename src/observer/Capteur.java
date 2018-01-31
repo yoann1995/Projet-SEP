@@ -1,5 +1,6 @@
 package observer;
 
+import application.Canal;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -13,5 +14,9 @@ public interface Capteur extends SubjectAsync<Capteur> {
 	 * @return the value
 	 */
 	public Integer getValue();
+	public Integer getValue(Canal canal);
+
+	
+	public void setBooleanCanInc(boolean bool);
 
 }

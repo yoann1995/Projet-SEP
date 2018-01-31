@@ -60,13 +60,7 @@ public class Canal implements CapteurAsync, ObserverAsync<Capteur> {
 	 */
 	@Override
 	public Future<Integer> getValue() {
-		return scheduler.schedule(new Callable<Integer>() {
-
-			@Override
-			public Integer call() throws Exception {
-				return capteur.getValue();
-			}
-		}, delay, TimeUnit.MILLISECONDS);
+		return scheduler.schedule(new GetValue(capteur, this), delay, TimeUnit.MILLISECONDS);
 	}
 
 }

@@ -12,24 +12,35 @@ import observer.ObserverAsync;
  * The Class AtomicStrat.
  */
 public class AtomicStrat extends AlgoDiffusion{
+	
+	private List<ObserverAsync<Capteur>> list;
 
 	/* (non-Javadoc)
 	 * @see stategy.AlgoDiffusion#execute()
 	 */
 	@Override
 	public void execute() {
-		List<ObserverAsync<Capteur>> o = capteur.getListObserver();
-		Iterator<ObserverAsync<Capteur>> ite = o.iterator();
+		this.capteur.setBooleanCanInc(false);
+		list = capteur.getListObserver();
+		Iterator<ObserverAsync<Capteur>> ite = list.iterator();
 		
 		while(ite.hasNext()){
-			try {
-				ite.next().update(capteur).get();
-			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ite.next().update(capteur);
 		}
 		
 	}
+
+	@Override
+	public int getValue(ObserverAsync<Capteur> canal) {
+		if(list.contains(canal))
+			list.remove(canal);
+
+		if(list.isEmpty()){
+			this.capteur.setBooleanCanInc(true);
+		}
+		return this.capteur.getValue();
+	}
+	
+	
 
 }

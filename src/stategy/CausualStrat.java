@@ -22,4 +22,10 @@ public class CausualStrat extends AlgoDiffusion{
 		}
 	}
 
+	@Override
+	public int getValue(ObserverAsync<Capteur> canal) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

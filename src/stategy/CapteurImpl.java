@@ -1,9 +1,10 @@
 package stategy;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
 
+import application.Canal;
 import observer.Capteur;
 import observer.ObserverAsync;
 
@@ -12,6 +13,8 @@ import observer.ObserverAsync;
  * The Class CapteurImpl.
  */
 public class CapteurImpl implements Capteur {
+	
+	private boolean canTick = true;
 	
 	/** The counter. */
 	private int counter;
@@ -46,9 +49,11 @@ public class CapteurImpl implements Capteur {
 	 * Inc counter.
 	 */
 	public void incCounter() {
-		this.counter++;
-		System.out.println(counter);
-		notifierObservateurs();
+		if(canTick){
+			this.counter++;
+			System.out.println(counter);
+			notifierObservateurs();
+		}
 	}
 
 	/* (non-Javadoc)
@@ -89,7 +94,13 @@ public class CapteurImpl implements Capteur {
 	 * @return the list observer
 	 */
 	public List<ObserverAsync<Capteur>> getListObserver() {
-		return listObserver;
+		List<ObserverAsync<Capteur>> ret = new ArrayList<ObserverAsync<Capteur>>();
+		Iterator ite = this.listObserver.iterator();
+		while(ite.hasNext()){
+			ret.add((ObserverAsync<Capteur>) ite.next());
+		}
+		
+		return ret;
 	}
 
 	/**
@@ -99,6 +110,14 @@ public class CapteurImpl implements Capteur {
 	 */
 	public void setListObserver(List listObserver) {
 		this.listObserver = listObserver;
+	}
+	
+	public Integer getValue(Canal canal){
+		return this.algo.getValue(canal);
+	}
+	
+	public void setBooleanCanInc(boolean bool){
+		canTick = true;
 	}
 
 }
