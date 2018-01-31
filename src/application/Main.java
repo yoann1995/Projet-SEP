@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import stategy.AlgoDiffusion;
 import stategy.AtomicStrat;
 import stategy.CapteurImpl;
-import stategy.CausualStrat;
+import stategy.EpoqueStrat;
 import stategy.SequentialStrat;
 
 // TODO: Auto-generated Javadoc
@@ -31,7 +31,7 @@ public class Main implements ActionListener,Runnable{
 	JButton atomicButton;
 	
 	/** The causual button. */
-	JButton causualButton;
+	JButton epoqueButton;
 	
 	/** The sequential button. */
 	JButton sequentialButton;
@@ -100,19 +100,19 @@ public class Main implements ActionListener,Runnable{
 	private void addDisplay() {
 		counter1 = new JTextArea("0");
 		fenetre.add(counter1);
-		capteur.attach(new Canal(capteur,counter1,100,scheduler));
+		capteur.attach(new Canal(capteur,counter1,1000,scheduler));
 		
 		counter2 = new JTextArea("0");
 		fenetre.add(counter2);
-		capteur.attach(new Canal(capteur,counter2,200,scheduler));
+		capteur.attach(new Canal(capteur,counter2,2000,scheduler));
 		
 		counter3 = new JTextArea("0");
 		fenetre.add(counter3);
-		capteur.attach(new Canal(capteur,counter3,300,scheduler));
+		capteur.attach(new Canal(capteur,counter3,3000,scheduler));
 
 		counter4 = new JTextArea("0");
 		fenetre.add(counter4);
-		capteur.attach(new Canal(capteur,counter4,400,scheduler));
+		capteur.attach(new Canal(capteur,counter4,4000,scheduler));
 		
 	}
 
@@ -124,9 +124,9 @@ public class Main implements ActionListener,Runnable{
 		fenetre.add(atomicButton);
 		atomicButton.addActionListener(this);
 		
-		causualButton = new JButton("Causual");
-		fenetre.add(causualButton);
-		causualButton.addActionListener(this);
+		epoqueButton = new JButton("Causual");
+		fenetre.add(epoqueButton);
+		epoqueButton.addActionListener(this);
 		
 		sequentialButton = new JButton("Sequential");
 		fenetre.add(sequentialButton);
@@ -152,8 +152,8 @@ public class Main implements ActionListener,Runnable{
 			algorithm = new AtomicStrat();
 			algorithm.configure(capteur);
 			capteur.setAlgo(algorithm);
-		}else if(source==causualButton){
-			algorithm = new CausualStrat();
+		}else if(source==epoqueButton){
+			algorithm = new EpoqueStrat();
 			algorithm.configure(capteur);
 			capteur.setAlgo(algorithm);
 		}else if(source==sequentialButton){

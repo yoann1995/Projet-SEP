@@ -1,5 +1,8 @@
 package stategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import observer.Capteur;
 import observer.ObserverAsync;
 
@@ -12,6 +15,9 @@ public abstract class AlgoDiffusion {
 	/** The capteur. */
 	CapteurImpl capteur;
 	
+	protected List<ObserverAsync<Capteur>> list;
+
+	
 	/**
 	 * Configure.
 	 *
@@ -19,6 +25,7 @@ public abstract class AlgoDiffusion {
 	 */
 	public void configure(CapteurImpl capteur) {
 		this.capteur = capteur;
+		list = new ArrayList<ObserverAsync<Capteur>>();
 	}
 	
 	/**

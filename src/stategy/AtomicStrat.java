@@ -13,7 +13,6 @@ import observer.ObserverAsync;
  */
 public class AtomicStrat extends AlgoDiffusion{
 	
-	private List<ObserverAsync<Capteur>> list;
 
 	/* (non-Javadoc)
 	 * @see stategy.AlgoDiffusion#execute()
