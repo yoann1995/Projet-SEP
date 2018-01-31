@@ -17,30 +17,68 @@ import stategy.CapteurImpl;
 import stategy.CausualStrat;
 import stategy.SequentialStrat;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ * We cimplement the view =, the listener of this view and the scheudler which will generate a tick every seconds to the capteur
+ */
 public class Main implements ActionListener,Runnable{
 
+	/** The fenetre. */
 	JFrame fenetre;
+	
+	/** The atomic button. */
 	JButton atomicButton;
+	
+	/** The causual button. */
 	JButton causualButton;
+	
+	/** The sequential button. */
 	JButton sequentialButton;
+	
+	/** The run. */
 	JButton run;
+	
+	/** The stop. */
 	JButton stop;
 	
+	/** The counter 1. */
 	JTextArea counter1;
+	
+	/** The counter 2. */
 	JTextArea counter2;
+	
+	/** The counter 3. */
 	JTextArea counter3;
+	
+	/** The counter 4. */
 	JTextArea counter4;
 	
+	/** The given algorithm. */
 	private AlgoDiffusion algorithm;
 	
+	/** The capteur of the application. */
 	private CapteurImpl capteur;
+	
+	/** Boolean to stop or not the scheduler. */
 	private boolean loop = false;
+	
+	/** The scheduler of the app. */
 	private ScheduledExecutorService scheduler;
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		new Main();
 	}
 
+	/**
+	 * Instantiates a new main.
+	 * Instantiate the frame, the scheduler and buttons.
+	 */
 	public Main(){
 	    this.scheduler = Executors.newScheduledThreadPool(20);
 	    capteur = new CapteurImpl(this.algorithm);
@@ -55,25 +93,32 @@ public class Main implements ActionListener,Runnable{
 	    scheduler.scheduleAtFixedRate(this, 1000, 1000, TimeUnit.MILLISECONDS);
 	}
 
+	/**
+	 * Adds the displays.
+	 * They are link to the afficheur with the canal
+	 */
 	private void addDisplay() {
 		counter1 = new JTextArea("0");
 		fenetre.add(counter1);
-		capteur.attach(new Canal(capteur,counter1,100,scheduler));
+		capteur.attach(new Canal(capteur,counter1,1000,scheduler));
 		
 		counter2 = new JTextArea("0");
 		fenetre.add(counter2);
-		capteur.attach(new Canal(capteur,counter2,200,scheduler));
+		capteur.attach(new Canal(capteur,counter2,2000,scheduler));
 		
 		counter3 = new JTextArea("0");
 		fenetre.add(counter3);
-		capteur.attach(new Canal(capteur,counter3,300,scheduler));
+		capteur.attach(new Canal(capteur,counter3,3000,scheduler));
 
 		counter4 = new JTextArea("0");
 		fenetre.add(counter4);
-		capteur.attach(new Canal(capteur,counter4,400,scheduler));
+		capteur.attach(new Canal(capteur,counter4,4000,scheduler));
 		
 	}
 
+	/**
+	 * Adds the button of the app with their listener.
+	 */
 	private void addButton() {
 		atomicButton = new JButton("Atomic");
 		fenetre.add(atomicButton);
@@ -96,6 +141,9 @@ public class Main implements ActionListener,Runnable{
 		stop.addActionListener(this);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -120,6 +168,9 @@ public class Main implements ActionListener,Runnable{
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		if(loop){

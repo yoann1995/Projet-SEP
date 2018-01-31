@@ -8,15 +8,28 @@ import javax.swing.JTextArea;
 import observer.CapteurAsync;
 import observer.Observer;
 
+/**
+ * Obsever of capteurAsync.
+ *
+ * @author yoann
+ */
 public class Afficheur implements Observer<CapteurAsync>{
 	
+	/** Graphic text which will be modifiate. */
 	private JTextArea txtCounter;
 	
-	
+	/**
+	 * Constructor of Afficheur
+	 *
+	 * @param counter the counter
+	 */
 	public Afficheur(JTextArea counter) {
 		txtCounter = counter;
 	}
 
+	/* (non-Javadoc)
+	 * @see observer.Observer#update(java.lang.Object)
+	 */
 	@Override
 	public void update(CapteurAsync subject) {
 		// TODO Auto-generated method stub

@@ -7,8 +7,15 @@ import java.util.concurrent.ExecutionException;
 import observer.Capteur;
 import observer.ObserverAsync;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AtomicStrat.
+ */
 public class AtomicStrat extends AlgoDiffusion{
 
+	/* (non-Javadoc)
+	 * @see stategy.AlgoDiffusion#execute()
+	 */
 	@Override
 	public void execute() {
 		List<ObserverAsync<Capteur>> o = capteur.getListObserver();
