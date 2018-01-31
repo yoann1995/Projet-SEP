@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 public interface CapteurAsync {
 	
 	/**
-	 * Gets the value
+	 * Gets the value (Async way)
 	 *
 	 * @return Future<Integer>
 	 */

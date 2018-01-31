@@ -15,6 +15,9 @@ public abstract class AlgoDiffusion {
 	/** The capteur. */
 	CapteurImpl capteur;
 	
+	/**
+	 * List of all canals
+	 */
 	protected List<ObserverAsync<Capteur>> list;
 
 	
@@ -33,6 +36,11 @@ public abstract class AlgoDiffusion {
 	 */
 	public abstract void execute();
 	
+	/**
+	 * Warn the algorithm that a given canal get the value
+	 * @param canal
+	 * @return the inc of capteur
+	 */
 	public abstract int getValue(ObserverAsync<Capteur> canal);
 	
 }

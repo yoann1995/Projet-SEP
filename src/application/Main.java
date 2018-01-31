@@ -20,7 +20,7 @@ import stategy.SequentialStrat;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Main.
- * We cimplement the view =, the listener of this view and the scheudler which will generate a tick every seconds to the capteur
+ * We implement the view, the listener of this view and the scheudler which will generate a tick every seconds to the capteur
  */
 public class Main implements ActionListener,Runnable{
 
@@ -85,7 +85,7 @@ public class Main implements ActionListener,Runnable{
 
 		fenetre = new JFrame();
 	    fenetre.setVisible(true);
-	    GridLayout layout = new GridLayout(3,3);
+	    GridLayout layout = new GridLayout(2,5);
 	    fenetre.setLayout(layout);
 	    addButton();
 	    addDisplay();
@@ -124,7 +124,7 @@ public class Main implements ActionListener,Runnable{
 		fenetre.add(atomicButton);
 		atomicButton.addActionListener(this);
 		
-		epoqueButton = new JButton("Causual");
+		epoqueButton = new JButton("Epoque");
 		fenetre.add(epoqueButton);
 		epoqueButton.addActionListener(this);
 		

@@ -9,16 +9,16 @@ package observer;
 public interface SubjectAsync<T> {
 	
 	/**
-	 * Attach.
+	 * Attach a new observer
 	 *
-	 * @param o the o
+	 * @param o
 	 */
 	public void attach(ObserverAsync<T> o);
 	
 	/**
-	 * Detach.
+	 * Detach a given observer
 	 *
-	 * @param o the o
+	 * @param o
 	 */
 	public void detach(ObserverAsync<T> o);
 	

@@ -7,16 +7,21 @@ import observer.CapteurAsync;
 import observer.Observer;
 import observer.ObserverAsync;
 
+/**
+ * Get the value of the capteur with a calable
+ * @author Yoann
+ *
+ */
 public class GetValue implements Callable<Integer>{
 
-	/** The afficheur. */
+	/** The capteur. */
     private Capteur capteur;
     
     /** The canal. */
     private ObserverAsync<Capteur> canal;
 
     /**
-     * Instantiates a new update.
+     * Instantiates a new getValue.
      *
      * @param capteur the afficheur
      * @param canal the canal

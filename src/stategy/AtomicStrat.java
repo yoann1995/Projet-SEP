@@ -35,6 +35,7 @@ public class AtomicStrat extends AlgoDiffusion{
 			list.remove(canal);
 
 		if(list.isEmpty()){
+			System.out.println("size "+list.size());
 			this.capteur.setBooleanCanInc(true);
 		}
 		return this.capteur.getValue();

@@ -14,7 +14,7 @@ import observer.ObserverAsync;
  */
 public class CapteurImpl implements Capteur {
 	
-	private boolean canTick = true;
+	private boolean canTick;
 	
 	/** The counter. */
 	private int counter;
@@ -31,6 +31,7 @@ public class CapteurImpl implements Capteur {
 	 * @param algo the algo
 	 */
 	public CapteurImpl(AlgoDiffusion algo) {
+		canTick = true;
 		this.counter = 0;
 		this.algo = algo;
 		this.listObserver = new ArrayList<ObserverAsync<Capteur>>();
@@ -51,7 +52,7 @@ public class CapteurImpl implements Capteur {
 	public void incCounter() {
 		if(canTick){
 			this.counter++;
-			System.out.println(counter);
+			//System.out.println(counter);
 			notifierObservateurs();
 		}
 	}
@@ -117,7 +118,7 @@ public class CapteurImpl implements Capteur {
 	}
 	
 	public void setBooleanCanInc(boolean bool){
-		canTick = true;
+		canTick = bool;
 	}
 
 }

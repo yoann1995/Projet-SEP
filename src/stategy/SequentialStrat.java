@@ -34,7 +34,6 @@ public class SequentialStrat extends AlgoDiffusion{
 	public int getValue(ObserverAsync<Capteur> canal) {
 		if(list.contains(canal))
 			list.remove(canal);
-		System.out.println("SIZE : "+list.size());
 		return counter;
 	}
 
