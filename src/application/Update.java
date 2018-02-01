@@ -1,7 +1,5 @@
 package application;
 
-import java.util.concurrent.Callable;
-
 import observer.CapteurAsync;
 import observer.Observer;
 
@@ -10,7 +8,7 @@ import observer.Observer;
  * The Class Update.
  * Update each afficheur in asynchrone way
  */
-public class Update implements Callable<Void> {
+public class Update implements MethodInvocation {
 
     /** The afficheur. */
     private Observer<CapteurAsync> afficheur;

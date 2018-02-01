@@ -1,10 +1,8 @@
 package application;
 
-import java.util.concurrent.Callable;
 
 import observer.Capteur;
-import observer.CapteurAsync;
-import observer.Observer;
+
 import observer.ObserverAsync;
 
 /**
@@ -12,7 +10,7 @@ import observer.ObserverAsync;
  * @author Yoann
  *
  */
-public class GetValue implements Callable<Integer>{
+public class GetValue implements MethodInvocation{
 
 	/** The capteur. */
     private Capteur capteur;
