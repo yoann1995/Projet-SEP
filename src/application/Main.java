@@ -84,11 +84,12 @@ public class Main implements ActionListener,Runnable{
 	    capteur = new CapteurImpl(this.algorithm);
 
 		fenetre = new JFrame();
-	    fenetre.setVisible(true);
 	    GridLayout layout = new GridLayout(2,5);
 	    fenetre.setLayout(layout);
 	    addButton();
 	    addDisplay();
+	    fenetre.setVisible(true);
+	    fenetre.setSize(1000, 400);
 	    
 	    scheduler.scheduleAtFixedRate(this, 1000, 1000, TimeUnit.MILLISECONDS);
 	}

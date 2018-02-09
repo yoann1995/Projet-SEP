@@ -11,7 +11,7 @@ import observer.Observer;
 /**
  * Obsever of capteurAsync.
  *
- * @author yoann
+ * @author yoann et Mehidine
  */
 public class Afficheur implements Observer<CapteurAsync>{
 	

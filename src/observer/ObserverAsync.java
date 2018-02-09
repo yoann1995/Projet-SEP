@@ -1,12 +1,12 @@
 package observer;
 
 import java.util.concurrent.Future;
-
-// TODO: Auto-generated Javadoc
 /**
  * The Interface ObserverAsync.
  *
  * @param <T> the generic type
+ * 
+ * @author Mehidine et Yoann
  */
 public interface ObserverAsync<T> {
 

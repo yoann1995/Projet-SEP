@@ -11,12 +11,11 @@ import observer.Capteur;
 import observer.CapteurAsync;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * Pattern proxy
  * Link between afficheur and capteur
  *
- * @author yoann
+ * @author mehidine et yoann
  */
 public class Canal implements CapteurAsync, ObserverAsync<Capteur> {
 	

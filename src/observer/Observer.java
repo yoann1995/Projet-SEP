@@ -1,10 +1,11 @@
 package observer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface Observer.
  *
  * @param <T> the generic type
+ * 
+ * @author Mehidine et Yoann
  */
 public interface Observer<T> {
 	

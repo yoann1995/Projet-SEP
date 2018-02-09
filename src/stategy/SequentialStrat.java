@@ -6,9 +6,10 @@ import java.util.List;
 import observer.Capteur;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SequentialStrat.
+ * 
+ * @author Mehidine et Yoann
  */
 public class SequentialStrat extends AlgoDiffusion{
 

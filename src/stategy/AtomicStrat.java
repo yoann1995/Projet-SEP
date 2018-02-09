@@ -7,9 +7,10 @@ import java.util.concurrent.ExecutionException;
 import observer.Capteur;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AtomicStrat.
+ * 
+ * @author Mehidine et Yoann
  */
 public class AtomicStrat extends AlgoDiffusion{
 	
@@ -35,7 +36,7 @@ public class AtomicStrat extends AlgoDiffusion{
 			list.remove(canal);
 
 		if(list.isEmpty()){
-			System.out.println("size "+list.size());
+			//System.out.println("size "+list.size());
 			this.capteur.setBooleanCanInc(true);
 		}
 		return this.capteur.getValue();

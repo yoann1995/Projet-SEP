@@ -5,9 +5,10 @@ import java.util.List;
 import observer.Capteur;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CausualStrat.
+ * 
+ * @author Mehidine et Yoann
  */
 public class EpoqueStrat extends AlgoDiffusion{
 

@@ -6,9 +6,10 @@ import java.util.List;
 import observer.Capteur;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AlgoDiffusion.
+ * 
+ * @author Mehidine et Yoann
  */
 public abstract class AlgoDiffusion {
 	
@@ -32,14 +33,14 @@ public abstract class AlgoDiffusion {
 	}
 	
 	/**
-	 * Execute the algorithm to maj each afficheur
+	 * Execute the algorithm to update each afficheur
 	 */
 	public abstract void execute();
 	
 	/**
 	 * Warn the algorithm that a given canal get the value
-	 * @param canal
-	 * @return the inc of capteur
+	 * @param canal the canal wich provide the value
+	 * @return the value of the counter in the capteur
 	 */
 	public abstract int getValue(ObserverAsync<Capteur> canal);
 	

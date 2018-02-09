@@ -7,6 +7,7 @@ import observer.Observer;
 /**
  * The Class Update.
  * Update each afficheur in asynchrone way
+ * @author Mehidine et Yoann
  */
 public class Update implements MethodInvocation {
 
@@ -29,6 +30,9 @@ public class Update implements MethodInvocation {
 
     /* (non-Javadoc)
      * @see java.util.concurrent.Callable#call()
+     */
+    /**
+     * Method executed by scheduler
      */
     @Override
     public Void call() throws Exception {

@@ -8,9 +8,10 @@ import application.Canal;
 import observer.Capteur;
 import observer.ObserverAsync;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CapteurImpl.
+ * 
+ * @author Mehidine et Yoann
  */
 public class CapteurImpl implements Capteur {
 	

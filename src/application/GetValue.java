@@ -6,7 +6,7 @@ import observer.Capteur;
 import observer.ObserverAsync;
 
 /**
- * Get the value of the capteur with a calable
+ * Get the value of the capteur with a callable
  * @author Yoann
  *
  */
@@ -29,6 +29,9 @@ public class GetValue implements MethodInvocation{
         this.canal = canal;
     }
 	
+    /**
+     * Method executed by scheduler
+     */
 	@Override
 	public Integer call() throws Exception {
     	return capteur.getValue((Canal) canal);
